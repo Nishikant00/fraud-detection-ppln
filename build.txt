@@ -1,0 +1,78 @@
+#Plz make sure you have installed Docker Desktop and python ae vedya
+#Wait at each step plz
+```
+1. docker-compose up -d
+
+2. python producer.py [this one in seperate terminal]
+# pip install kafka-python agar nahi hai toh
+
+[Go back to first terminal]
+3. docker build -t pyspark-fraud-detection .
+
+4. docker run --network="host" --name fraud-pyspark pyspark-fraud-detection
+
+```
+
+Aisa kuch toh output ayega
+
+-------------------------------------------
+Batch: 3
+-------------------------------------------
++--------------+----------+------------------+----------------+-------------------+
+|transaction_id|account_id|transaction_amount|transaction_type|          timestamp|
++--------------+----------+------------------+----------------+-------------------+
+|          7464|        21|11787.189847363305|      withdrawal|2024-09-21 16:23:12|
++--------------+----------+------------------+----------------+-------------------+
+
+24/09/21 10:53:13 INFO WriteToDataSourceV2Exec: Data source write support MicroBatchWrite[epoch: 3, writer: ConsoleWriter[numRows=20, truncate=true]] committed.
+24/09/21 10:53:13 INFO CheckpointFileManager: Writing atomically to file:/tmp/temporary-f91e0a91-6fad-4648-b36a-17a7ac68b8b2/commits/3 using temp file file:/tmp/temporary-f91e0a91-6fad-4648-b36a-17a7ac68b8b2/commits/.3.0048bb04-4caa-44d2-a3eb-1ce587fac5e7.tmp
+24/09/21 10:53:13 INFO CheckpointFileManager: Renamed temp file file:/tmp/temporary-f91e0a91-6fad-4648-b36a-17a7ac68b8b2/commits/.3.0048bb04-4caa-44d2-a3eb-1ce587fac5e7.tmp to file:/tmp/temporary-f91e0a91-6fad-4648-b36a-17a7ac68b8b2/commits/3
+24/09/21 10:53:13 INFO MicroBatchExecution: Streaming query made progress: {
+  "id" : "a0839f5e-f363-4d21-bcbb-5492c8ff72c2",
+  "runId" : "5480c343-f3a2-4b48-b43d-e38482808c3d",
+  "name" : null,
+  "timestamp" : "2024-09-21T10:53:12.986Z",
+  "batchId" : 3,
+  "numInputRows" : 1,
+  "inputRowsPerSecond" : 83.33333333333333,
+  "processedRowsPerSecond" : 1.1520737327188941,
+  "durationMs" : {
+    "addBatch" : 731,
+    "commitOffsets" : 37,
+    "getBatch" : 0,
+    "latestOffset" : 3,
+    "queryPlanning" : 53,
+    "triggerExecution" : 868,
+    "walCommit" : 43
+  },
+  "stateOperators" : [ ],
+  "sources" : [ {
+    "description" : "KafkaV2[Subscribe[transactions]]",
+    "startOffset" : {
+      "transactions" : {
+        "0" : 58
+      }
+    },
+    "endOffset" : {
+      "transactions" : {
+        "0" : 59
+      }
+    },
+    "latestOffset" : {
+      "transactions" : {
+        "0" : 59
+      }
+    },
+    "numInputRows" : 1,
+    "inputRowsPerSecond" : 83.33333333333333,
+    "processedRowsPerSecond" : 1.1520737327188941,
+    "metrics" : {
+      "avgOffsetsBehindLatest" : "0.0",
+      "maxOffsetsBehindLatest" : "0",
+      "minOffsetsBehindLatest" : "0"
+    }
+  } ],
+  "sink" : {
+    "description" : "org.apache.spark.sql.execution.streaming.ConsoleTable$@1cd3d27b",
+    "numOutputRows" : 1
+  }
