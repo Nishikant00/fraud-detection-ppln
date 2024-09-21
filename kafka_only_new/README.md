@@ -19,6 +19,8 @@ Ensure you have the following installed:
 
 STEPS TO RUN
 # step 1
+cd kafka_only_new
+
 docker-compose up -d
 # step 2
 - For Linux/macOS
