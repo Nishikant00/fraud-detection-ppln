@@ -40,7 +40,7 @@ Make sure step 4,5,6 are in seperate terminals
 python kafka_producer.py
 
 # step 5
-python fraud_consumer.py
+python kafka_consumer.py
 
 # step 6
 docker exec -it kafka_only_new-postgres-1 psql -U user -d fraud_db
