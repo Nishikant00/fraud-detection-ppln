@@ -37,7 +37,7 @@ pip install -r requirements.txt
 Make sure step 4,5,6 are in seperate terminals
 
 # step 4
-python producer.py
+python kafka_producer.py
 
 # step 5
 python fraud_consumer.py
